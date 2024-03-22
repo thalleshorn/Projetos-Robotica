@@ -1,0 +1,28 @@
+/* Programa de acionamento do LED através do * botão
+(Push Button) */
+#define Pino_Botao 10 /* Define o pino do botão */
+#define Pino_LED 8 /* Define o pino do LED */
+bool Estado = LOW; /* Variável estado do LED
+ (Ligado/HIGH ou Desligado/LOW) */
+bool Estado_Botao; /* Variável estado do botão
+ (Pressionado/HIGH ou Solto/LOW) */
+void setup() {
+ pinMode(Pino_LED, OUTPUT); /* Configura pino do LED
+como saída */
+ pinMode(Pino_Botao, INPUT); /* Configura o pino do
+botão como entrada */
+}
+void loop() {
+ /* Lê o estado do botão e armazena na variável */
+ Estado_Botao = digitalRead(Pino_Botao);
+ /* Verifica se o botão foi pressionado e liga ou
+desliga o LED */
+ if (Estado_Botao == 1) {
+ Estado = !Estado; /* Inverte o estado
+anterior do LED ligado/desligado */
+ digitalWrite(Pino_LED, Estado); /* Atualiza o novo
+estado do LED */
+ delay(500); /* Pausa para evirar
+várias leituras do botão */
+ }
+}
