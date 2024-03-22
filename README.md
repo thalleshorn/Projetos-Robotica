@@ -1,2 +1,2 @@
 # Arduino
-Código para protótipos de rovótica.
+Código para protótipos de robótica.
